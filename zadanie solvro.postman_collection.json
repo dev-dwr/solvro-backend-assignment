@@ -1,0 +1,162 @@
+{
+	"info": {
+		"_postman_id": "426b5f02-e8b6-48d7-b1de-a641ea4bdbef",
+		"name": "zadanie solvro",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "create reservation",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"date\": \"2023-06-09T10:08:00-10:00\",\n  \"duration\": 2,\n  \"seatNumber\": 7,\n  \"fullName\": \"string\",\n  \"phone\": 123321,\n  \"email\": \"dadaa@gmail.com\",\n  \"numberOfSeats\": 3\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/reservations",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"reservations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get reservation on given date",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/api/reservations?date=2023-06-09T10:08:00-10:00",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"reservations"
+					],
+					"query": [
+						{
+							"key": "date",
+							"value": "2023-06-09T10:08:00-10:00"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get tables",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/api/tables?status=FREE&min_seats=3&duration_time=2&start_date=2023-06-19T10:08:00-10:00",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"tables"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "FREE"
+						},
+						{
+							"key": "min_seats",
+							"value": "3"
+						},
+						{
+							"key": "duration_time",
+							"value": "2"
+						},
+						{
+							"key": "start_date",
+							"value": "2023-06-19T10:08:00-10:00"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "request cancellation",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"status\": \"requested cancellation\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/reservations/620fe1af55e32600452012a3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"reservations",
+						"620fe1af55e32600452012a3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete reservation",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"verificationCode\": \"197081\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/reservations/620fe1af55e32600452012a3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"reservations",
+						"620fe1af55e32600452012a3"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
